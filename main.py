@@ -39,11 +39,11 @@ loaded_dnn = keras.models.load_model('dnn_model.h5')
 with open('rbm_model.pkl', 'rb') as file:
     loaded_rbm = pickle.load(file)
 
-@app.route('/ping', methods=['Get'])  # using post method to data send
+@app.route('/ping', methods=['GET'])  # using post method to data send
 def ping():
     return "pinning"
 
-@app.route('/predict', methods=['Post','Get'])  # using post method to data send
+@app.route('/predict', methods=['POST'])  # using post method to data send
 def feedModel():
     url = request.json.get('url')
     print("url is", url)
