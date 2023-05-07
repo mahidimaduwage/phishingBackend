@@ -44,6 +44,7 @@ MarkupSafe==2.1.2
 matplotlib==3.7.1
 meteo-downloader==1.0
 ml-dtypes==0.1.0
+MyApplication==0.1.0
 numpy==1.23.5
 oauthlib==3.2.2
 opt-einsum==3.3.0
