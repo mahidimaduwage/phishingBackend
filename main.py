@@ -43,7 +43,7 @@ with open('rbm_model.pkl', 'rb') as file:
 def ping():
     return "pinning"
 
-@app.route('/predict', methods=['POST'])  # using post method to data send
+@app.route('/predict', methods=['Post'])  # using post method to data send
 def feedModel():
     url = request.json.get('url')
     print("url is", url)
