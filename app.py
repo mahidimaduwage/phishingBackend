@@ -22,7 +22,7 @@ with open('rbm_model.pkl', 'rb') as file:
 
 @app.route('/ping', methods=['GET'])  # using post method to data send
 def ping():
-    return "pinning"
+    return "running"
 
 @app.route('/predict', methods=['POST','GET'])  # using post method to data send
 def feedModel():
