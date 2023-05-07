@@ -47,7 +47,8 @@ def ping():
 
 @app.route('/predict', methods=['POST'])  # using post method to data send
 def feedModel():
-    url = request.json.get('url')
+    #url = request.json.get('url')
+    url = request.get_json('url')
     print("url is", url)
 
     result = getData(url)
