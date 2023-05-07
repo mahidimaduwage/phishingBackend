@@ -1,39 +1,18 @@
-import ipaddress
-import json
 import pickle
-import re
-import socket
+import pickle
 import sqlite3
 import string
-import time
-import urllib
-from datetime import datetime, date
-import datetime
-import google
-import numpy as np
-import pytz as pytz
-import whois
-from urllib import response
-from bs4 import BeautifulSoup
-from dateutil.utils import today
-from googlesearch import search
-from dateutil.parser import parse as date_parse
-from flask import app, request, Flask, jsonify
-import requests
-from sklearn.preprocessing import LabelEncoder
-from tensorflow import keras
 from urllib.parse import urlparse
-import tldextract
-from numpy import argmax
-from pymongo import MongoClient
+
+import numpy as np
+from flask import Flask, jsonify
 from flask import request
 from flask_cors import CORS
-from tensorflow.compiler.tf2xla.python.xla import le
+from tensorflow import keras
 
 app = Flask(__name__)
-#CORS(app)
-CORS(app, resources={r"/api/": {"origins": ""}})
-
+CORS(app)
+# CORS(app, resources={r"/api/": {"origins": ""}})
 # Load the saved model
 loaded_dnn = keras.models.load_model('dnn_model.h5')
 # Load the saved models
@@ -45,10 +24,11 @@ with open('rbm_model.pkl', 'rb') as file:
 def ping():
     return "pinning"
 
-@app.route('/predict', methods=['POST'])  # using post method to data send
+@app.route('/predict', methods=['POST','GET'])  # using post method to data send
 def feedModel():
-    #url = request.json.get('url')
-    url = request.get_json('url')
+    # url = request.json.get('url')
+    data = request.get_json()
+    url = data['url']
     print("url is", url)
 
     result = getData(url)
