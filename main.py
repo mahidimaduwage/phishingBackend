@@ -31,7 +31,9 @@ from flask_cors import CORS
 from tensorflow.compiler.tf2xla.python.xla import le
 
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
+CORS(app, resources={r"/api/": {"origins": ""}})
+
 # Load the saved model
 loaded_dnn = keras.models.load_model('dnn_model.h5')
 # Load the saved models
